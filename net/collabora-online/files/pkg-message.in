@@ -1,0 +1,19 @@
+[
+{ type: install
+  message: <<EOM
+To set up the systemplate, run as root:
+
+%%LOCALBASE%%/bin/coolwsd-systemplate-setup %%LOCALBASE%%/share/collabora/systemplate %%LOCALBASE%%/share/collabora-office-online/instdir/
+
+Important: %%LOCALBASE%%/share/collabora/systemplate must be owned by
+collaboraonline:collaboraonline, but not recursively.  After the systemplate is
+created, run:
+
+chown collaboraonline:collaboraonline %%LOCALBASE%%/share/collabora/systemplate
+
+See https://sdk.collaboraonline.com/docs/installation/Proxy_settings.html#reverse-proxy-settings-in-nginx-config-ssl-termination
+for an nginx config that fits the default config with ssl-termination true and
+ssl-enabled false.
+EOM
+}
+]
