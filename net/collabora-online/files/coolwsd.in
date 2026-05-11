@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# PROVIDE: coolwsd
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+#
+# Add the following lines to /etc/rc.conf to enable Collabora Online:
+#
+# coolwsd_enable="YES"
+# coolwsd_cli_options="--o:ssl.enable=false --o:ssl.termination=true"
+
+. /etc/rc.subr
+
+name=coolwsd
+rcvar=coolwsd_enable
+
+pidfile="/var/run/${name}.pid"
+logfile="/var/log/${name}.log"
+user="collaboraonline"
+procname="%%PREFIX%%/bin/coolwsd"
+command="/usr/sbin/daemon"
+start_precmd="coolwsd_precmd"
+
+coolwsd_precmd()
+{
+	install -d -o ${user} -g ${user} /var/cache/coolwsd /var/log/coolwsd \
+	    %%PREFIX%%/share/collabora %%PREFIX%%/share/collabora/jails
+}
+
+load_rc_config ${name}
+: ${coolwsd_enable:="NO"}
+command_args="--child-pidfile ${pidfile} --output-file ${logfile} --user ${user} ${procname} ${coolwsd_cli_options}"
+
+run_rc_command "$1"

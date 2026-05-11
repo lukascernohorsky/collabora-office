@@ -1,0 +1,20 @@
+--- Makefile.in.orig	2025-11-11 13:27:11.807538000 +0000
++++ Makefile.in	2025-11-11 13:27:49.815778000 +0000
+@@ -9,7 +9,7 @@
+ 
+ gb_Top_MODULE_CHECK_TARGETS := slowcheck unitcheck subsequentcheck perfcheck uicheck screenshot
+ 
+-.PHONY : check-if-root bootstrap gbuild build build-non-l10n-only build-l10n-only check clean clean-build clean-host test-install distclean distro-pack-install docs download etags fetch get-submodules id install install-gdb-printers install-strip tags debugrun help showmodules translations packageinfo coverage internal.clean $(gb_Top_MODULE_CHECK_TARGETS)
++.PHONY : bootstrap gbuild build build-non-l10n-only build-l10n-only check clean clean-build clean-host test-install distclean distro-pack-install docs download etags fetch get-submodules id install install-gdb-printers install-strip tags debugrun help showmodules translations packageinfo coverage internal.clean $(gb_Top_MODULE_CHECK_TARGETS)
+ 
+ MAKECMDGOALS?=build
+ build_goal:=$(if $(filter build uicheck,$(MAKECMDGOALS)),build)
+@@ -289,7 +289,7 @@
+ #
+ # Bootstrap
+ #
+-bootstrap: check-if-root compilerplugins
++bootstrap: compilerplugins
+ 
+ #
+ # Build

@@ -1,0 +1,2 @@
+# Add to FreeBSD ports UIDs:
+collaboraonline:*:386:386::0:0:Collabora Online:/usr/local/share/collabora:/usr/sbin/nologin

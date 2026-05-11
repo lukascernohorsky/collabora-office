@@ -1,0 +1,11 @@
+--- configure.ac.orig	2025-11-10 20:36:45 UTC
++++ configure.ac
+@@ -11897,7 +11897,7 @@ else
+     save_CXXFLAGS=$CXXFLAGS
+     save_IFS=$IFS
+     IFS=$P_SEP
+-    for i in $CPLUS_INCLUDE_PATH /usr/include; do
++    for i in $CPLUS_INCLUDE_PATH /usr/local/include; do
+         dnl Reset IFS as soon as possible, to avoid unexpected side effects (and the
+         dnl "/usr/include" fallback makes sure we get here at least once; resetting rather than
+         dnl unsetting follows the advice at <https://git.savannah.gnu.org/gitweb/?p=autoconf.git;

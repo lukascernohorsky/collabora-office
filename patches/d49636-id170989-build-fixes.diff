@@ -1,0 +1,49 @@
+diff --git a/net/collabora-online/Makefile b/net/collabora-online/Makefile
+--- a/net/collabora-online/Makefile
++++ b/net/collabora-online/Makefile
+@@ -46,7 +46,12 @@ BUILD_DEPENDS= ${PYTHON_SITELIBDIR}/lxml/__init__.py:devel/py-lxml\
+ 	${LOCALBASE}/lib/libcppunit.so:devel/cppunit \
+ 	bash:shells/bash \
+ 	grealpath:sysutils/coreutils
++RUN_DEPENDS= ${LOCALBASE}/share/collabora-office-online/instdir/program/soffice:net/collabora-office-online \
++	bash:shells/bash \
++	grealpath:sysutils/coreutils \
++	${LOCALBASE}/share/certs/ca-root-nss.crt:security/ca_root_nss \
++	${LOCALBASE}/share/fonts/dejavu/DejaVuSans.ttf:x11-fonts/dejavu
+ LIB_DEPENDS= libzstd.so:archivers/zstd \
+ 	libpng16.so:graphics/png \
+ 	libPocoNet.so:devel/poco
+ SUB_FILES= pkg-message
+diff --git a/net/collabora-online/files/coolwsd.in b/net/collabora-online/files/coolwsd.in
+new file mode 100644
+--- /dev/null
++++ b/net/collabora-online/files/coolwsd.in
+@@ -0,0 +1,27 @@
++#!/bin/sh
++
++# PROVIDE: coolwsd
++# REQUIRE: LOGIN
++# KEYWORD: shutdown
++#
++# Add the following lines to /etc/rc.conf to enable Collabora Online:
++#
++# coolwsd_enable="YES"
++# coolwsd_cli_options="--o:ssl.enable=false --o:ssl.termination=true"
++
++. /etc/rc.subr
++
++name=coolwsd
++rcvar=coolwsd_enable
++
++pidfile="/var/run/${name}.pid"
++logfile="/var/log/${name}.log"
++coolwsd_chdir="%%PREFIX%%/share/collabora"
++user="collaboraonline"
++procname="%%PREFIX%%/bin/coolwsd"
++command="/usr/sbin/daemon"
++
++load_rc_config ${name}
++: ${coolwsd_enable:="NO"}
++command_args="--child-pidfile ${pidfile} --output-file ${logfile} --user ${user} ${procname} ${coolwsd_cli_options}"
++
++run_rc_command "$1"

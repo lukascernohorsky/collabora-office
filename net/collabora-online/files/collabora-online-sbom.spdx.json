@@ -1,0 +1,22 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "collabora-online-freebsd-port-placeholder",
+  "documentNamespace": "https://github.com/lukascernohorsky/collabora-office/spdx/collabora-online-cp-25.04.7-1",
+  "creationInfo": {
+    "created": "2026-05-11T00:00:00Z",
+    "creators": ["Tool: FreeBSD ports helper"]
+  },
+  "packages": [
+    {
+      "name": "collabora-online",
+      "SPDXID": "SPDXRef-Package-collabora-online",
+      "downloadLocation": "https://github.com/CollaboraOnline/online",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MPL-2.0",
+      "licenseDeclared": "MPL-2.0",
+      "copyrightText": "NOASSERTION"
+    }
+  ]
+}
