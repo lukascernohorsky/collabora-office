@@ -1,0 +1,30 @@
+# Files in FreeBSD Phabricator D49636 diff id 170989
+# Source page: https://reviews.freebsd.org/D49636?id=170989
+# Raw file mirrored by Phabricator at review time: https://reviews.freebsd.org/F156199609
+GIDs
+UIDs
+net/Makefile
+net/collabora-office-online/Makefile
+net/collabora-office-online/distinfo
+net/collabora-office-online/files/configure.ac.patch.0
+net/collabora-office-online/files/patch-Makefile.in
+net/collabora-office-online/files/patch-configure.ac
+net/collabora-office-online/files/patch-external_liborcus_ExternalProject__liborcus.mk
+net/collabora-office-online/files/patch-external_liborcus_UnpackedTarball__liborcus.mk
+net/collabora-office-online/files/patch-sal_unx_uunxapi.cxx
+net/collabora-office-online/files/patch-solenv_bin_concat-deps.c
+net/collabora-office-online/files/patch-solenv_gbuild_platform_unxgcc.mk
+net/collabora-office-online/pkg-descr
+net/collabora-online/Makefile
+net/collabora-online/distinfo
+net/collabora-online/files/collabora-online-sbom.spdx.json
+net/collabora-online/files/patch-configure.ac
+net/collabora-online/files/patch-coolwsd.xml.in
+net/collabora-online/files/pkg-message.in
+net/collabora-online/pkg-descr
+net/collabora-online/pkg-plist
+
+# Build-completeness overlay included in this repository
+# The review discussion notes that net/collabora-online/files/coolwsd.in was
+# missing from diff id 170989 while USE_RC_SUBR= coolwsd still requires it.
+net/collabora-online/files/coolwsd.in
